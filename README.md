@@ -2,6 +2,8 @@
 
 **No motion without spoken proof.**
 
+![QuorumLatch — temporal voice safety infrastructure](docs/quorumlatch-cover.png)
+
 QuorumLatch is a locked-by-default temporal authorization API. AssemblyAI produces finalized, diarized turns; LLM Gateway extracts strictly grounded evidence; deterministic code alone evaluates the immutable policy snapshot. A successful quorum creates a short-lived authorization capsule.
 
 The default Gateway model is AssemblyAI's account-native `qwen3.5-4b-32k-fast`. Models with native JSON-schema support use strict schema mode; this model receives the same schema in its prompt and every returned field is independently validated and transcript-grounded before the deterministic engine sees it.
