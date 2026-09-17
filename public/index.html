@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050707" />
+    <title>QuorumLatch — Spoken proof before motion</title>
+    <link rel="stylesheet" href="/styles.css?v=security-1" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+    <header>
+      <a class="brand" href="#">
+        <span class="brand-mark"><i></i><i></i></span>
+        <span><b>NULLMOTION</b><small>LABS</small></span>
+      </a>
+      <div class="system-strip">
+        <span class="pulse-dot"></span>
+        <span id="connection-label">CONTROL PLANE ONLINE</span>
+        <span class="divider"></span>
+        <span>POLICY v1.0.0</span>
+      </div>
+      <div class="header-actions">
+        <span class="mode-badge" id="mode-badge">DEMO MODE</span>
+        <button class="ghost" id="reset-button">Reset latch</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">TEMPORAL SAFETY INFRASTRUCTURE</p>
+          <h1>Speech is not authority.<br /><em>Proof is.</em></h1>
+        </div>
+        <p class="intro-copy">
+          A locked-by-default API that converts multi-speaker safety language into
+          short-lived, auditable authorization.
+        </p>
+      </section>
+
+      <section class="workspace">
+        <article class="panel policy-panel">
+          <div class="panel-heading">
+            <span>01 / ACTIVE INVARIANT</span>
+            <span class="verified">HASH-PINNED POLICY</span>
+          </div>
+          <h2>Surgical site quorum</h2>
+          <p class="muted">Every condition must be explicit, ordered and grounded in a finalized turn.</p>
+
+          <div class="step" id="step-a">
+            <div class="step-index">A</div>
+            <div>
+              <span class="step-state">WAITING</span>
+              <h3>Operator command</h3>
+              <code>INCISION.site == “right knee”</code>
+            </div>
+          </div>
+          <div class="temporal-link"><span></span><b>WITHIN 15s</b><span></span></div>
+          <div class="step" id="step-b">
+            <div class="step-index">B</div>
+            <div>
+              <span class="step-state">WAITING</span>
+              <h3>Independent readback</h3>
+              <code>CONFIRM.site == A.site</code>
+            </div>
+          </div>
+
+          <div class="policy-foot">
+            <span>FAILURE MODE</span>
+            <strong>LOCKED / FAIL-CLOSED</strong>
+          </div>
+        </article>
+
+        <article class="panel core-panel" id="core-panel">
+          <div class="panel-heading">
+            <span>02 / AUTHORIZATION CORE</span>
+            <span id="engine-mode">DETERMINISTIC VERDICT</span>
+          </div>
+
+          <div class="latch-stage">
+            <div class="beam beam-a"><span></span></div>
+            <div class="beam beam-b"><span></span></div>
+            <div class="latch-orbit orbit-one"></div>
+            <div class="latch-orbit orbit-two"></div>
+            <div class="latch">
+              <div class="latch-inner">
+                <span id="latch-symbol">×</span>
+              </div>
+            </div>
+            <div class="proof-label proof-a">PROOF A</div>
+            <div class="proof-label proof-b">PROOF B</div>
+          </div>
+
+          <div class="verdict">
+            <p id="verdict-kicker">PHYSICAL OUTPUT INHIBITED</p>
+            <h2 id="verdict-title">LOCKED</h2>
+            <p id="verdict-reason">Awaiting an explicit operator command.</p>
+          </div>
+
+          <div class="live-turn">
+            <span id="speaker-chip">—</span>
+            <p id="live-transcript">Finalized speech evidence will appear here.</p>
+          </div>
+        </article>
+
+        <article class="panel audit-panel">
+          <div class="panel-heading">
+            <span>03 / EVIDENCE LEDGER</span>
+            <span id="event-count">000 EVENTS</span>
+          </div>
+          <div class="ledger" id="ledger"></div>
+          <div class="receipt" id="receipt">
+            <div><span>AUTHORIZATION CAPSULE</span><b>NOT ISSUED</b></div>
+            <code id="receipt-hash">—</code>
+          </div>
+        </article>
+      </section>
+
+      <section class="control-deck">
+        <div class="deck-heading">
+          <div>
+            <span>JUDGE SEQUENCE</span>
+            <p>Four events. One irreversible boundary.</p>
+            <p class="challenge-line">FRESHNESS CHALLENGE <strong id="challenge-code">—</strong></p>
+          </div>
+          <button class="live-button" id="live-button"><span></span> Switch to live microphone</button>
+        </div>
+        <div class="scenario-grid">
+          <button class="scenario danger" data-speaker="A" data-text="Initiate incision on the left knee.">
+            <small>01 · NEGATIVE CONTROL</small><b>Send wrong-site command</b><span>Speaker A · “left knee”</span>
+          </button>
+          <button class="scenario" data-speaker="A" data-text="Initiate incision on the right knee.">
+            <small>02 · PROOF A</small><b>Send valid command</b><span>Speaker A · explicit site</span>
+          </button>
+          <button class="scenario danger" data-speaker="B" data-text="Yes, go ahead.">
+            <small>03 · AMBIGUITY TEST</small><b>Send vague assent</b><span>Speaker B · missing site</span>
+          </button>
+          <button class="scenario approve" data-speaker="B" data-text="Confirm incision on the right knee.">
+            <small>04 · PROOF B</small><b>Send explicit readback</b><span>Speaker B · same site</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>QUORUMLATCH / NULLMOTION LABS</span>
+      <span>AI EXTRACTS EVIDENCE · CODE OWNS AUTHORITY</span>
+      <span>ASSEMBLYAI U3 REALTIME PRO</span>
+    </footer>
+
+    <dialog id="control-dialog">
+      <form method="dialog" class="credential-card">
+        <p class="eyebrow">LIVE CONTROL AUTHORIZATION</p>
+        <h2>Enter the control-plane token</h2>
+        <p>The token stays in memory for this connection and is never written to browser storage.</p>
+        <input id="control-token" type="password" minlength="32" autocomplete="off" spellcheck="false" placeholder="QUORUMLATCH_CONTROL_TOKEN" />
+        <div>
+          <button value="cancel" class="ghost">Cancel</button>
+          <button value="connect" class="authorize-button">Authorize Live Mode</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="/app.js?v=security-1"></script>
+  </body>
+</html>

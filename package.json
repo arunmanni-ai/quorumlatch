@@ -1,0 +1,28 @@
+{
+  "name": "quorumlatch",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "A locked-by-default temporal safety policy engine for spoken operations.",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc && mkdir -p dist/public && cp -R public/. dist/public/",
+    "start": "node dist/src/server.js",
+    "test": "node --import tsx --test test/*.test.ts",
+    "smoke:live": "node scripts/live-smoke-test.mjs",
+    "security:audit": "npm run build && tsx scripts/adversarial-audit.ts"
+  },
+  "dependencies": {
+    "assemblyai": "^4.36.4",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
